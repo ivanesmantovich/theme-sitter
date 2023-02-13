@@ -1,6 +1,3 @@
 .code-window {
-    display: inline-flex;
-    gap: 10px;
     font-family: Iosevka Fixed, monospace;
-    font-size: 18px;
 }

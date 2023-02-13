@@ -16,7 +16,7 @@ export default function CodeWindow() {
     }, []);
 
     return (
-        <div className='code-window'>
+        <div className='code-window inline-flex text-lg gap-3'>
             <LineNumbers numberOfLines={numberOfLines}></LineNumbers>
             <Code text={text}></Code>
         </div>
