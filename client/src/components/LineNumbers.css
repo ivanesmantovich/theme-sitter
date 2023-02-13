@@ -1,0 +1,9 @@
+.line-numbers span {
+  counter-increment: linenumber;
+}
+
+.line-numbers span::before {
+  display: block;
+  content: counter(linenumber);
+  color: #494949;
+}
