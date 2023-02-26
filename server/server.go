@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	sitter "github.com/smacker/go-tree-sitter"
@@ -10,6 +8,7 @@ import (
 )
 
 type syntaxResponse struct {
+	Type          string       `json:"type"`
 	StartPosition sitter.Point `json:"startPosition"`
 	EndPosition   sitter.Point `json:"endPosition"`
 	StartByte     uint32       `json:"startByte"`
@@ -37,6 +36,7 @@ func main() {
 	firstChild := tree.RootNode().Child(1).Child(0)
 
 	body := syntaxResponse{
+		Type:          firstChild.Type(),
 		StartPosition: firstChild.StartPoint(),
 		EndPosition:   firstChild.EndPoint(),
 		StartByte:     firstChild.StartByte(),
@@ -44,7 +44,6 @@ func main() {
 	}
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		fmt.Println(body)
 		return c.JSON(body)
 	})
 
