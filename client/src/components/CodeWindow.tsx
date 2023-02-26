@@ -11,8 +11,20 @@ export default function CodeWindow() {
         setNumberOfLines(text.split('\n').length);
     }
 
+    async function getSyntaxTree(): Promise<void> {
+        const response: Response = await fetch(
+            "http://localhost:3000",
+            {
+                method: "GET"
+            }
+        );
+        const tree = await response.json();
+        console.log(tree);
+    }
+
     useEffect(() => {
         countTheLines();
+        getSyntaxTree();
     }, []);
 
     return (
