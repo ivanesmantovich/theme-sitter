@@ -4,6 +4,6 @@ interface CodeProps {
 
 export default function Code({ text }: CodeProps) {
     return (
-        <div className="overflow-y-hidden whitespace-pre-wrap">{text}</div>
+        <div className="whitespace-pre">{text}</div>
     )
 }
